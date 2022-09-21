@@ -1,7 +1,7 @@
 import React from "react";
 
-const Livres = () => {
+const BooksList = () => {
   return <div>Liste des livres ici</div>;
 };
 
-export default Livres;
+export default BooksList;
