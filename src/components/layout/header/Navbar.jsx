@@ -58,7 +58,9 @@ export default function Navbar() {
           </NavLi>
         </NavUl>
       </nav>
-      <NavButton>Connexion</NavButton>
+      <NavButton onClick={() => alert("Site pas encore operationnel")}>
+        Connexion
+      </NavButton>
     </NavbarContainer>
   );
 }
