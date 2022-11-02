@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { ThemeContext } from "../../../utils/context";
 
 const NavbarContainer = styled.div`
   display: flex;
@@ -35,7 +36,6 @@ const NavLi = styled.li`
 
 const NavButton = styled.button`
   border: none;
-  background-color: transparent;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   &:hover {
@@ -43,6 +43,7 @@ const NavButton = styled.button`
   }
 `;
 export default function Navbar() {
+  const { theme, toggoleTheme } = useContext(ThemeContext);
   return (
     <NavbarContainer>
       <nav>
@@ -58,9 +59,14 @@ export default function Navbar() {
           </NavLi>
         </NavUl>
       </nav>
-      <NavButton onClick={() => alert("Site pas encore operationnel")}>
-        Connexion
-      </NavButton>
+      <div>
+        <NavButton onClick={() => toggoleTheme()}>
+          Dark Mode :{theme === "light" ? "☀️" : "🌙"}
+        </NavButton>
+        <NavButton onClick={() => alert("Site pas encore operationnel")}>
+          Connexion / Inscription
+        </NavButton>
+      </div>
     </NavbarContainer>
   );
 }
