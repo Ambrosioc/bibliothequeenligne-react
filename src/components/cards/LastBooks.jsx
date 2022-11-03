@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useFetch } from "../../utils/hooks";
 import { Loader } from "../../utils/styles/Loading";
@@ -64,6 +65,7 @@ export default function LastBooks() {
                 {book.author.firstName} {book.author.lastName}
               </p>
               <LastBooksImg src={book.coverImage} alt={book.title} />
+              <Link to={book._links.self.href}>Plus d'infos</Link>
             </LastBooksLi>
           ))}
         </LastBooksUl>

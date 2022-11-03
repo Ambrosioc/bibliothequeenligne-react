@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Footer from "./components/layout/footer/Footer";
 import Navbar from "./components/layout/header/Navbar";
 import About from "./pages/About";
 import BooksList from "./pages/BooksList";
@@ -15,6 +16,7 @@ function App() {
         <Route path={"/about"} element={<About />} />
         <Route path={"*"} element={<NotFound />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
