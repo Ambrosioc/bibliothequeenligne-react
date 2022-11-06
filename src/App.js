@@ -1,4 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SignIn from "./components/auth/SignIn";
+import SignUp from "./components/auth/SignUp";
 import Footer from "./components/layout/footer/Footer";
 import Navbar from "./components/layout/header/Navbar";
 import About from "./pages/About";
@@ -18,6 +20,8 @@ function App() {
         <Route path={"/user"} element={<UserBackOffice />} />
         <Route path={"/bookslist"} element={<BooksList />} />
         <Route path={"/about"} element={<About />} />
+        <Route path={"/sign-in"} element={<SignIn />} />
+        <Route path={"/sign-up"} element={<SignUp />} />
         <Route path={"*"} element={<NotFound />} />
       </Routes>
       <Footer />

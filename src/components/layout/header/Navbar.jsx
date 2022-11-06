@@ -34,6 +34,13 @@ const NavLi = styled.li`
   }
 `;
 
+const NavLinks = styled(Link)`
+  text-decoration: none;
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 500;
+`;
+
 const NavButton = styled.button`
   border: none;
   cursor: pointer;
@@ -49,13 +56,13 @@ export default function Navbar() {
       <nav>
         <NavUl>
           <NavLi>
-            <Link to={"/"}>Accueil</Link>
+            <NavLinks to={"/"}>Accueil</NavLinks>
           </NavLi>
           <NavLi>
-            <Link to={"/bookslist"}>Les Livres</Link>
+            <NavLinks to={"/bookslist"}>Les Livres</NavLinks>
           </NavLi>
           <NavLi>
-            <Link to={"/about"}>À Propos</Link>
+            <NavLinks to={"/about"}>À Propos</NavLinks>
           </NavLi>
         </NavUl>
       </nav>
@@ -63,9 +70,7 @@ export default function Navbar() {
         <NavButton onClick={() => toggoleTheme()}>
           Dark Mode :{theme === "light" ? "☀️" : "🌙"}
         </NavButton>
-        <NavButton onClick={() => alert("Site pas encore operationnel")}>
-          Connexion / Inscription
-        </NavButton>
+        <NavLinks to={"/sign-in"}>Connexion</NavLinks>
       </div>
     </NavbarContainer>
   );
