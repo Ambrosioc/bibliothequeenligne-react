@@ -17,37 +17,6 @@ const StyledGlobalStyle = createGlobalStyle`
 
     }
 
-    h1 {
-        font-size: 2rem;
-        font-weight: 700;
-        margin: 1rem 0;
-
-        @media (max-width: 768px) {
-            font-size: 1.5rem;
-        }
-    }
-
-    h2 {
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin: 1rem 0;
-
-        @media (max-width: 768px) {
-            font-size: 1.2rem;
-        }
-    }
-
-    h3 {
-        font-size: 1.2rem;
-        font-weight: 700;
-
-
-        @media (max-width: 768px) {
-            font-size: 1rem;
-        }
-    }
-
-
 `;
 
 export const SignInSignUpContainer = styled.div`
