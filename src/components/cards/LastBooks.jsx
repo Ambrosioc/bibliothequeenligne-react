@@ -1,38 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useFetch } from "../../utils/hooks";
+import { StyledLink } from "../../utils/styles/GlobalStyle";
 import { Loader } from "../../utils/styles/Loading";
-
-const LastBooksContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-const LastBooksUl = styled.ul`
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  align-items: center;
-  flex-wrap: wrap;
-`;
-
-const LastBooksLi = styled.li`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  &:hover {
-    background-color: #f2f2f2;
-  }
-`;
+import {
+  CardBookLi,
+  CardBookUl,
+  CardContainer,
+} from "../../utils/styles/StyledCard";
 
 const LastBooksImg = styled.img`
   width: 100px;
@@ -45,31 +20,31 @@ export default function LastBooks() {
   );
 
   const lastBooks = data;
-  //   console.log(lastBooks);
+  // console.log(lastBooks);
 
   if (error) {
     return <div>Une erreur est survenue</div>;
   }
 
   return (
-    <LastBooksContainer>
+    <CardContainer>
       {loading ? (
         <Loader />
       ) : (
-        <LastBooksUl>
+        <CardBookUl>
           {lastBooks.map((book, index) => (
-            <LastBooksLi key={`${book.name}-${index}`}>
+            <CardBookLi key={`${book.name}-${index}`}>
               <h3>{book.title}</h3>
               <p>{book.coverText}</p>
               <p>
                 {book.author.firstName} {book.author.lastName}
               </p>
               <LastBooksImg src={book.coverImage} alt={book.title} />
-              <Link to={book._links.self.href}>Plus d'infos</Link>
-            </LastBooksLi>
+              <StyledLink to={book._links.self.href}>Plus d'infos</StyledLink>
+            </CardBookLi>
           ))}
-        </LastBooksUl>
+        </CardBookUl>
       )}
-    </LastBooksContainer>
+    </CardContainer>
   );
 }
