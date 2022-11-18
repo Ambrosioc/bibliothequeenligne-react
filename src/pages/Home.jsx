@@ -1,6 +1,7 @@
 import React from "react";
+import { useState } from "react";
 import styled from "styled-components";
-import LastBooks from "../components/cards/LastBooks";
+import LastBooks from "../container/LastBooks";
 import { Loader } from "../utils/styles/Loading";
 
 const HomeContainer = styled.div`
@@ -15,16 +16,16 @@ export default function Home() {
     <HomeContainer>
       <h1>Bienvenue sur la bibliothèque en ligne</h1>
       <div>
-        <h2>Les derneiers sortis par catégorie</h2>
+        <h2>Les dernières sortis</h2>
         <LastBooks />
       </div>
       <div>
         <h2>Les mieux notés</h2>
-        <Loader />
+        <LastBooks />
       </div>
       <div>
         <h2>Les plus populaires</h2>
-        <Loader />
+        <LastBooks />
       </div>
     </HomeContainer>
   );
