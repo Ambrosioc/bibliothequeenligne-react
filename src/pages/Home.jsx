@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import styled from "styled-components";
 import LastBooks from "../container/LastBooks";
 import { Loader } from "../utils/styles/Loading";
@@ -21,11 +20,11 @@ export default function Home() {
       </div>
       <div>
         <h2>Les mieux notés</h2>
-        <LastBooks />
+        <Loader />
       </div>
       <div>
         <h2>Les plus populaires</h2>
-        <LastBooks />
+        <Loader />
       </div>
     </HomeContainer>
   );
