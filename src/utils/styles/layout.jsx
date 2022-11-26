@@ -6,9 +6,10 @@ export const LayoutContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
-  height: 5rem;
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100px; /* Hauteur du pied de page */
 `;
 
 export const LayoutUl = styled.ul`
