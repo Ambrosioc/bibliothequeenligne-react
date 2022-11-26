@@ -1,5 +1,7 @@
 import React from "react";
+import { lastBooks } from "../../data";
 import { StyledLink } from "../../utils/styles/GlobalStyle";
+import { Loader } from "../../utils/styles/Loading";
 import {
   CardBookInfo,
   CardBookLi,
@@ -9,30 +11,44 @@ import {
 } from "../../utils/styles/StyledCard";
 
 export default function Card(props) {
-  const { lastBook } = props;
+  const { data, isLoading, error } = props;
+
+  // const data = lastBooks;
+
+  if (error) {
+    return (
+      <CardContainer>
+        <h1>Une erreur est survenue</h1>
+      </CardContainer>
+    );
+  }
+
   return (
     <CardContainer>
-      {/* {loading ? (
+      {isLoading ? (
         <Loader />
-      ) : ( */}
-      <CardBookUl>
-        {lastBook.map((book, index) => (
-          <CardBookLi key={`${book.name}-${index}`}>
-            <LastBooksImg src={book.coverImage} alt={book.title} />
-            <CardBookInfo>
-              <h3>{book.title}</h3>
-              <p>{book.coverText}</p>
-              <p>
-                {book.author.firstName} {book.author.lastName}
-              </p>
-            </CardBookInfo>
-            <div>
-              <StyledLink to={book._links.self.href}>Plus d'infos</StyledLink>
-            </div>
-          </CardBookLi>
-        ))}
-      </CardBookUl>
-      {/* )} */}
+      ) : (
+        <CardBookUl>
+          {data.map((book, index) => (
+            <CardBookLi key={`${book.name}-${index}`}>
+              <LastBooksImg
+                src="https://via.placeholder.com/400"
+                alt={book.title}
+              />
+              <CardBookInfo>
+                <h3>{book.title}</h3>
+                <p>{book.coverText}</p>
+                <p>
+                  {book.author.firstName} {book.author.lastName}
+                </p>
+              </CardBookInfo>
+              <div>
+                <StyledLink to={book._links.self.href}>Plus d'infos</StyledLink>
+              </div>
+            </CardBookLi>
+          ))}
+        </CardBookUl>
+      )}
     </CardContainer>
   );
 }

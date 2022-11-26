@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+
 import {
   SignInSignUpContainer,
   StyledLink,
@@ -84,7 +85,39 @@ const SignInButton = styled.button`
   border-radius: 6px;
 `;
 
-export default function SignIn() {
+export default function SignIn(props) {
+  const { handleLoginSuccess } = props;
+
+  const [email, setEmail] = useState("admin@test.com");
+  const [password, setPassword] = useState("password");
+  const [data, setData] = useState();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    async function login(email, password) {
+      const response = await fetch(
+        "https://book-api-projet-fin.herokuapp.com/api/login_check",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: email,
+            password: password,
+          }),
+        }
+      );
+      const data = await response.json();
+      setData(data);
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+        handleLoginSuccess();
+      }
+    }
+    login(email, password);
+  }
+
   return (
     <SignInSignUpContainer>
       <SignInBackground></SignInBackground>
@@ -94,11 +127,25 @@ export default function SignIn() {
             Connectez vous a votre éspace pour voir tout les livres disponible
           </SignInTitle>
         </SignInTitleContainer>
-        <SignInForm action="">
+        <SignInForm onSubmit={handleSubmit}>
           <SignInLabel htmlFor="email">Email</SignInLabel>
-          <SignInInput type="email" name="email" id="email" />
+          <SignInInput
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
           <SignInLabel htmlFor="password">Mot de passe</SignInLabel>
-          <SignInInput type="password" name="password" id="password" />
+          <SignInInput
+            type="password"
+            name="password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
           <SignInButton type="submit">Connexion</SignInButton>
         </SignInForm>
         <div>

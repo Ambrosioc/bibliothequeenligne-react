@@ -1,6 +1,7 @@
 import React from "react";
 import { Loader } from "../utils/styles/Loading";
 import styled from "styled-components";
+import Books from "../container/Books";
 
 const BooksListContainer = styled.div`
   display: flex;
@@ -13,7 +14,7 @@ const BooksListContainer = styled.div`
 const BooksList = () => {
   return (
     <BooksListContainer>
-      <Loader />
+      <Books />
     </BooksListContainer>
   );
 };
