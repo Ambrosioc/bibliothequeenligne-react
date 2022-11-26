@@ -87,10 +87,8 @@ const SignInButton = styled.button`
 
 export default function SignIn(props) {
   const { handleLoginSuccess } = props;
-
   const [email, setEmail] = useState("admin@test.com");
   const [password, setPassword] = useState("password");
-  const [data, setData] = useState();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -109,7 +107,8 @@ export default function SignIn(props) {
         }
       );
       const data = await response.json();
-      setData(data);
+      // console.log(data.token);
+
       if (data.token) {
         localStorage.setItem("token", data.token);
         handleLoginSuccess();

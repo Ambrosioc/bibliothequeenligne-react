@@ -1,5 +1,4 @@
 import React from "react";
-import { lastBooks } from "../../data";
 import { StyledLink } from "../../utils/styles/GlobalStyle";
 import { Loader } from "../../utils/styles/Loading";
 import {
@@ -12,8 +11,6 @@ import {
 
 export default function Card(props) {
   const { data, isLoading, error } = props;
-
-  // const data = lastBooks;
 
   if (error) {
     return (
