@@ -40,8 +40,8 @@ export const LastBooksImg = styled.img`
 
 export const CardBookInfo = styled.div`
   position: absolute;
-  width: 75%;
-  height: 96%;
+  width: 281px;
+  height: 267px;
   display: flex;
   flex-direction: column;
   justify-content: center;
