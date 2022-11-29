@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <LayoutContainer>
-      <nav>
+      <nav style={styles.nav}>
         <LayoutUl>
           <LayoutLi>
             <LayoutLinks to={"/"}>Accueil</LayoutLinks>
@@ -28,14 +28,12 @@ export default function Navbar() {
           <LayoutLi>
             <LayoutLinks to={"/about"}>À Propos</LayoutLinks>
           </LayoutLi>
-        </LayoutUl>
-        {token ? (
-          <LayoutUl>
+          {token ? (
             <LayoutLi>
               <LayoutLinks to={"/admin"}>Mon Compte</LayoutLinks>
             </LayoutLi>
-          </LayoutUl>
-        ) : null}
+          ) : null}
+        </LayoutUl>
       </nav>
       <div>
         {token ? (
@@ -59,3 +57,12 @@ export default function Navbar() {
     </LayoutContainer>
   );
 }
+
+const styles = {
+  nav: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "30%",
+  },
+};

@@ -1,5 +1,6 @@
 import React from "react";
+import { Container } from "../../utils/styles/GlobalStyle";
 
 export default function AdminBackOffice() {
-  return <div>AdminBackOffice</div>;
+  return <Container>AdminBackOffice</Container>;
 }

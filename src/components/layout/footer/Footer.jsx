@@ -1,6 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import { LayoutContainer } from "../../../utils/styles/layout";
+
+const LayoutContainerFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 10vh;
+  padding-right: 140px;
+  padding-left: 140px;
+  bottom: 0;
+  position: fixed;
+`;
 
 const FooterDiv = styled.div`
   display: flex;
@@ -11,7 +24,7 @@ const FooterDiv = styled.div`
 
 export default function Footer() {
   return (
-    <LayoutContainer style={styles.footer}>
+    <LayoutContainerFooter>
       <FooterDiv>
         <div>
           <h3>Catégories</h3>
@@ -27,18 +40,6 @@ export default function Footer() {
         Tous droits réservés © 2022 - Bibliothèque en ligne - Réalisé par
         Cazimira Ambro
       </div>
-    </LayoutContainer>
+    </LayoutContainerFooter>
   );
 }
-
-const styles = {
-  footer: {
-    display: "flex",
-    justifyContent: "space-around",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: "0 2rem",
-    height: "10rem",
-    boxShadow: "0 0 5px rgba(0, 0, 0, 0.2)",
-  },
-};

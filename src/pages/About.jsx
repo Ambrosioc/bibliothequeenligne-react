@@ -1,8 +1,9 @@
 import React from "react";
+import { Container } from "../utils/styles/GlobalStyle";
 
 export default function About() {
   return (
-    <div>
+    <Container>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti neque
         ut molestias explicabo doloremque hic obcaecati itaque pariatur delectus
@@ -115,6 +116,6 @@ export default function About() {
         voluptatem quasi amet cum, totam, suscipit ab numquam odit ut assumenda
         nemo?
       </p>
-    </div>
+    </Container>
   );
 }

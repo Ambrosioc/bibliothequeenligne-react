@@ -5,39 +5,51 @@ export const LayoutContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   width: 100%;
-  height: 100px; /* Hauteur du pied de page */
+  height: 10vh;
+  padding-right: 140px;
+  padding-left: 140px;
+  @media (max-width: 768px) {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
 `;
 
 export const LayoutUl = styled.ul`
   display: flex;
   list-style: none;
-  margin: 0;
-  padding: 0;
-  height: 100%;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const LayoutLi = styled.li`
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 0 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  &:hover {
-    background-color: #f2f2f2;
+  justify-content: center;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 10vh;
+    border-bottom: 1px solid #000;
   }
 `;
 
 export const LayoutLinks = styled(Link)`
   text-decoration: none;
-  color: #000;
   font-size: 1.2rem;
   font-weight: 500;
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 export const LayoutButton = styled.button`
@@ -48,4 +60,10 @@ export const LayoutButton = styled.button`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   background-color: #fff;
+  &:hover {
+    color: #000;
+  }
+  @media (max-width: 768px) {
+    margin: 0;
+  }
 `;

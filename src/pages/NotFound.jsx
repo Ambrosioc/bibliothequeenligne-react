@@ -1,12 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
-const NotFoundContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
+import { Container } from "../utils/styles/GlobalStyle";
 
 const NotFoundh1 = styled.h1`
   font-size: 2rem;
@@ -14,8 +8,8 @@ const NotFoundh1 = styled.h1`
 `;
 export default function NotFound() {
   return (
-    <NotFoundContainer>
+    <Container>
       <NotFoundh1>NotFound 404</NotFoundh1>
-    </NotFoundContainer>
+    </Container>
   );
 }

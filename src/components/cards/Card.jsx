@@ -1,5 +1,4 @@
 import React from "react";
-import { lastBooks } from "../../data";
 import { StyledLink } from "../../utils/styles/GlobalStyle";
 import { Loader } from "../../utils/styles/Loading";
 import {
