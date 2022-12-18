@@ -11,3 +11,13 @@ export const validatePassword = (password) => {
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
   );
 };
+
+export function verifyPassword() {
+  const password = document.getElementById("password");
+  const confirmPassword = document.getElementById("confirmPassword");
+  if (password.value !== confirmPassword.value) {
+    confirmPassword.setCustomValidity("Les mots de passe ne correspondent pas");
+  } else {
+    confirmPassword.setCustomValidity("");
+  }
+}

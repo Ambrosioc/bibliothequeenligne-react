@@ -1,10 +1,17 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { validateEmail, validatePassword } from "../../utils/security";
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../../services/apis/books/apiBookServices";
+import {
+  validateEmail,
+  validatePassword,
+  verifyPassword,
+} from "../../utils/security";
 import { Form, Input, Label } from "../../utils/styles/auth";
 import { Button, Container } from "../../utils/styles/GlobalStyle";
 
 export default function SignUp() {
+  const naviagte = useNavigate();
+
   const [name, setName] = useState("");
   const [firstname, setFirstname] = useState("");
   const [email, setEmail] = useState("");
@@ -12,21 +19,16 @@ export default function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [date, setDate] = useState("");
 
-  function verifyPassword() {
-    const password = document.getElementById("password");
-    const confirmPassword = document.getElementById("confirmPassword");
-    if (password.value !== confirmPassword.value) {
-      confirmPassword.setCustomValidity(
-        "Les mots de passe ne correspondent pas"
-      );
-    } else {
-      confirmPassword.setCustomValidity("");
-    }
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
     console.log(name, firstname, email, password, confirmPassword, date);
+    auth.register(name, firstname, email, password, date).then((data) => {
+      if (data.status) {
+        alert("Vous êtes inscrit, connectez-vous !");
+        console.log(data);
+        naviagte("/sign-in");
+      }
+    });
   }
 
   return (

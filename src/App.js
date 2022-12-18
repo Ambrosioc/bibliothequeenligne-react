@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
-import Footer from "./components/layout/footer/Footer";
 import Navbar from "./components/layout/header/Navbar";
 import About from "./pages/About";
 import BooksList from "./pages/BooksList";
