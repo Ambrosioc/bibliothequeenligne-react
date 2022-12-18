@@ -37,6 +37,7 @@ export default function SignUp() {
       <Form onSubmit={handleSubmit}>
         <Label htmlFor="name">Nom</Label>
         <Input
+          id="name"
           type="text"
           placeholder="Nom"
           value={name}
@@ -47,6 +48,7 @@ export default function SignUp() {
         />
         <Label htmlFor="firstname">Prénom</Label>
         <Input
+          id="firstname"
           type="text"
           placeholder="Prénom"
           value={firstname}

@@ -23,7 +23,8 @@
 
 @media only screen and (max-width: 768px) {
   /* hide classic menu */
-  #topnav_menu {
+  #topnav_menu,
+  #search {
     display: none;
   }
 
