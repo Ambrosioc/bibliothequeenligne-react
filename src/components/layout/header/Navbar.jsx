@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ThemeContext } from "../../../utils/context";
 import {
   LayoutButton,
@@ -10,6 +10,7 @@ import {
 } from "../../../utils/styles/layout";
 import logo from "../../../asset/logo.png";
 import "./nav.css";
+import { Label } from "../../../utils/styles/auth";
 
 export default function Navbar() {
   const { theme, toggoleTheme } = useContext(ThemeContext);
@@ -37,13 +38,15 @@ export default function Navbar() {
       {/* <!-- Classic Menu --> */}
       <LayoutContainer>
         <nav style={styles.nav}>
-          <img src={logo} alt="Logo" />
+          <Link to={"/"}>
+            <img src={logo} alt="Logo" />
+          </Link>
           <LayoutUl>
             <LayoutLi>
-              <LayoutLinks to={"/"}>Accueil</LayoutLinks>
+              <LayoutLinks to={"/bookslist"}>Les Livres</LayoutLinks>
             </LayoutLi>
             <LayoutLi>
-              <LayoutLinks to={"/bookslist"}>Les Livres</LayoutLinks>
+              <LayoutLinks to={"/"}>Catégories</LayoutLinks>
             </LayoutLi>
             <LayoutLi>
               <LayoutLinks to={"/about"}>À Propos</LayoutLinks>
@@ -54,6 +57,12 @@ export default function Navbar() {
               </LayoutLi>
             ) : null}
           </LayoutUl>
+          <input
+            id="search"
+            type="text"
+            style={styles.searchInput}
+            placeholder="Livres, Auteurs ..."
+          />
         </nav>
         <div>
           {token ? (
@@ -102,6 +111,12 @@ export default function Navbar() {
               </LayoutLi>
             ) : null}
             <LayoutLi>
+              <input
+                id="search_responsive"
+                type="text"
+                style={styles.searchInput}
+                placeholder="Livres, Auteurs ..."
+              />
               <div style={styles.btn}>
                 {token ? (
                   <button
@@ -140,6 +155,18 @@ const styles = {
     alignItems: "center",
     width: "100%",
   },
+  searchLabel: {
+    paddingRight: "10px",
+  },
+
+  searchInput: {
+    width: "200px",
+    height: "30px",
+    borderRadius: "5px",
+    outline: "none",
+    padding: "0 10px",
+  },
+
   btn: {
     display: "flex",
     alignItems: "center",
