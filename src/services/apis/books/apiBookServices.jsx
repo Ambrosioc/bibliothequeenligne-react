@@ -1,8 +1,54 @@
 const FRONT_URL = "https://book-api-projet-fin.herokuapp.com/api";
 
-export function getAllBooks() {
-  return FRONT_URL + "/books";
-}
+// Création et connexion d'un utilisateur
+export const auth = {
+  login: (email, password) => {
+    return fetch(`${FRONT_URL}/login_check`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: email,
+        password: password,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        localStorage.setItem("token", data.token);
+        return data;
+      });
+  },
+  register: (email, password) => {
+    return fetch(`${FRONT_URL}/auth/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: email,
+        password: password,
+      }),
+    }).then((response) => response.json());
+  },
+};
+
+// Récupération des livres
+export const getLastBooks = () => {
+  return fetch(`${FRONT_URL}/lastbooks`, {
+    method: "GET",
+  }).then((response) => response.json());
+};
+
+export const getAllBooks = () => {
+  return fetch(`${FRONT_URL}/books`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  }).then((response) => response.json());
+};
 
 export function getBookById(id) {
   return FRONT_URL + `/books/${id}`;

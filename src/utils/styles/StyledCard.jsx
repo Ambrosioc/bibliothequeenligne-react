@@ -33,24 +33,14 @@ export const CardBookLi = styled.li`
 `;
 
 export const LastBooksImg = styled.img`
-  width: 75%;
-  object-fit: cover;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 281px;
+  height: 267px;
+  object-fit: contain;
   border-radius: 10px;
 `;
 
-export const CardBookInfo = styled.div`
-  position: absolute;
-  width: 281px;
-  height: 267px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.8);
-  opacity: 0;
-  transition: all 0.2s ease-in-out;
-  &:hover {
-    opacity: 1;
-  }
-`;
+export const CardBookInfo = styled.div``;

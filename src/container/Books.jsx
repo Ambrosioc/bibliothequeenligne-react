@@ -12,7 +12,7 @@ export default function Books() {
   //   fetchBooks();
   //   setIsLoading(true);
   // }, []);
-  const { data, isLoading, error } = useFetchwithToken(getAllBooks());
+  const { data, isLoading, error } = useFetchwithToken(getAllBooks, token);
   console.log(data);
 
   if (!token) {
