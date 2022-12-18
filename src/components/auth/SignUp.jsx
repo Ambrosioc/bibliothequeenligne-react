@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { validateEmail, validatePassword } from "../../utils/security";
 import { Form, Input, Label } from "../../utils/styles/auth";
 import { Button, Container } from "../../utils/styles/GlobalStyle";
 
@@ -24,10 +24,15 @@ export default function SignUp() {
     }
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(name, firstname, email, password, confirmPassword, date);
+  }
+
   return (
     <Container>
       <h1>Inscription</h1>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Label htmlFor="name">Nom</Label>
         <Input
           type="text"
@@ -55,6 +60,7 @@ export default function SignUp() {
           value={email}
           onChange={(e) => {
             setEmail(e.target.value);
+            validateEmail(email);
           }}
           required
         />
@@ -65,6 +71,7 @@ export default function SignUp() {
           value={password}
           onChange={(e) => {
             setPassword(e.target.value);
+            validatePassword(password);
           }}
           required
         />
