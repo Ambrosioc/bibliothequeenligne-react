@@ -20,18 +20,18 @@ export const auth = {
         return data;
       });
   },
-  register: (email, password) => {
-    return fetch(`${TEST_URL}/register`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }),
-    }).then((response) => response.json());
-  },
+  // register: (email, password) => {
+  //   return fetch(`${TEST_URL}/register`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       email: email,
+  //       password: password,
+  //     }),
+  //   }).then((response) => response.json());
+  // },
 };
 
 // Récupération des livres

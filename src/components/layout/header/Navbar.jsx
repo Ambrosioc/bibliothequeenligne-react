@@ -36,8 +36,8 @@ export default function Navbar() {
     <>
       {/* <!-- Classic Menu --> */}
       <LayoutContainer>
-        <img src={logo} alt="Logo" />
         <nav style={styles.nav}>
+          <img src={logo} alt="Logo" />
           <LayoutUl>
             <LayoutLi>
               <LayoutLinks to={"/"}>Accueil</LayoutLinks>
@@ -138,7 +138,7 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    width: "30%",
+    width: "100%",
   },
   btn: {
     display: "flex",
