@@ -57,7 +57,6 @@ function App() {
         <Route path={"/sign-up"} element={<SignUp />} />
         <Route path={"*"} element={<NotFound />} />
       </Routes>
-      <Footer />
     </>
   );
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { StyledLink } from "../../utils/styles/GlobalStyle";
 import { Loader } from "../../utils/styles/Loading";
 import {
@@ -9,45 +10,45 @@ import {
   LastBooksImg,
 } from "../../utils/styles/StyledCard";
 
-export default function Card(props) {
-  const { data, isLoading, error } = props;
+export default function Card({ lastBooks }) {
+  // const { data, isLoading, error } = props;
 
-  // const data = lastBooks;
+  const data = lastBooks;
+  console.log(data);
+  const nagigate = useNavigate();
 
-  if (error) {
-    return (
-      <CardContainer>
-        <h1>Une erreur est survenue</h1>
-      </CardContainer>
-    );
-  }
+  // if (error) {
+  //   return (
+  //     <CardContainer>
+  //       <h1>Une erreur est survenue</h1>
+  //     </CardContainer>
+  //   );
+  // }
 
   return (
     <CardContainer>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <CardBookUl>
-          {data.map((book, index) => (
-            <CardBookLi key={`${book.name}-${index}`}>
-              <LastBooksImg
-                src="https://via.placeholder.com/400"
-                alt={book.title}
-              />
-              <CardBookInfo>
-                <h3>{book.title}</h3>
-                <p>{book.coverText}</p>
-                <p>
-                  {book.author.firstName} {book.author.lastName}
-                </p>
-              </CardBookInfo>
-              <div>
-                <StyledLink to={book._links.self.href}>Plus d'infos</StyledLink>
-              </div>
-            </CardBookLi>
-          ))}
-        </CardBookUl>
-      )}
+      <CardBookUl>
+        {data.map((book, index) => (
+          <CardBookLi
+            key={`${book.name}-${index}`}
+            onClick={() =>
+              nagigate(`/book/${book._links.self.href.split("/").pop()}`)
+            }
+          >
+            <LastBooksImg
+              // src="https://via.placeholder.com/400"
+              src={book.coverImage}
+              alt={book.title}
+            />
+            <CardBookInfo>
+              <p>
+                {book.title} <br /> {book.author.firstName}{" "}
+                {book.author.lastName}
+              </p>
+            </CardBookInfo>
+          </CardBookLi>
+        ))}
+      </CardBookUl>
     </CardContainer>
   );
 }

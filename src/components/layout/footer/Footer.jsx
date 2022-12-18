@@ -9,10 +9,6 @@ const LayoutContainerFooter = styled.div`
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   width: 100%;
   height: 10vh;
-  padding-right: 140px;
-  padding-left: 140px;
-  bottom: 0;
-  position: fixed;
 `;
 
 const FooterDiv = styled.div`

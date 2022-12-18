@@ -12,28 +12,24 @@ export const colors = {
 const StyledGlobalStyle = createGlobalStyle`
     * {
         box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+        font-family: 'Comfortaa', cursive;
+        color: ${({ isDarkMode }) => (isDarkMode ? "#fff" : "#000")};
+
     }
 
     body {
-        font-family: 'Comfortaa', cursive;
            background-color: ${({ isDarkMode }) =>
              isDarkMode ? "#2F2E41" : "#f9f9fc;"};
-}
-p, h1, h2, h4, h5, h6 {
-    color: ${({ isDarkMode }) => (isDarkMode ? "#fff" : "#000")};
 }
 `;
 
 export const Container = styled.div`
-  height: 80vh;
   width: 100%;
-  padding: 60px 140px;
-
-  @media (max-width: 768px) {
-    padding: 60px 20px;
-  }
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Button = styled.button`
@@ -42,6 +38,7 @@ export const Button = styled.button`
   border: none;
   border-radius: 6px;
   padding: 12px 41px 12px 42px;
+  margin-bottom: 3%;
   font-size: 18px;
   font-weight: 500;
   line-height: 23px;

@@ -8,13 +8,6 @@ export const LayoutContainer = styled.div`
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   width: 100%;
-  height: 10vh;
-  padding-right: 140px;
-  padding-left: 140px;
-  @media (max-width: 768px) {
-    padding-right: 20px;
-    padding-left: 20px;
-  }
 `;
 
 export const LayoutUl = styled.ul`
@@ -25,17 +18,17 @@ export const LayoutUl = styled.ul`
   width: 100%;
   height: 100%;
   @media (max-width: 768px) {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: none;
   }
 `;
 
 export const LayoutLi = styled.li`
   height: 100%;
+  margin-right: auto;
   display: flex;
   align-items: center;
   justify-content: center;
+
   @media (max-width: 768px) {
     width: 100%;
     height: 10vh;
@@ -64,6 +57,6 @@ export const LayoutButton = styled.button`
     color: #000;
   }
   @media (max-width: 768px) {
-    margin: 0;
+    display: none;
   }
 `;
