@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { StyledLink } from "../../../utils/styles/GlobalStyle";
 
 const LayoutContainerFooter = styled.div`
   display: flex;
