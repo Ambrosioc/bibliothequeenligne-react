@@ -1,7 +1,5 @@
 import React from "react";
-
 import Card from "../components/cards/Card";
-import { getAllBooks } from "../services/apis/books/apiBookServices";
 import { useFetchwithToken } from "../utils/hooks";
 import { StyledLink } from "../utils/styles/GlobalStyle";
 import { CardContainer } from "../utils/styles/StyledCard";
@@ -9,11 +7,10 @@ import { CardContainer } from "../utils/styles/StyledCard";
 export default function Books() {
   const token = localStorage.getItem("token");
 
-  //   fetchBooks();
-  //   setIsLoading(true);
-  // }, []);
-  const { data, isLoading, error } = useFetchwithToken(getAllBooks, token);
-  console.log(data);
+  const { data, isLoading, error } = useFetchwithToken(
+    "https://book-api-projet-fin.herokuapp.com/api/books",
+    token
+  );
 
   if (!token) {
     return (

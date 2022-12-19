@@ -2,8 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import BOBooksList from "../../container/BOBooksList";
 import { Container } from "../../utils/styles/GlobalStyle";
+import { useFetchwithToken } from "../../utils/hooks";
 
 export default function AdminBackOffice() {
+  const token = localStorage.getItem("token");
+
+  const { data, isLoading, error } = useFetchwithToken(
+    "https://book-api-projet-fin.herokuapp.com/api/books",
+    token
+  );
+
   return (
     <Container>
       <h1>Admin Back Office</h1>
@@ -12,19 +20,27 @@ export default function AdminBackOffice() {
         velit similique vero modi quae animi saepe. Temporibus, deserunt illum.
         Mollitia nesciunt, obcaecati vero ipsam fuga natus quod neque quia?
       </p>
-      <Link to={"/admin/user"}>Gestion des utilisateurs</Link>
+      <Link to={"/admin/user"}>Gestion des utilisateurs cliquer ici</Link>
       <div style={styles.containerBook}>
         <div style={styles.containerTitleAdd}>
           <h3>Listes des livres</h3>
           <button style={styles.bookButton}>Ajouter un livre</button>
         </div>
-        <BOBooksList />
+        <BOBooksList
+          data={data}
+          isLoading={isLoading}
+          error={error}
+          token={token}
+        />
       </div>
     </Container>
   );
 }
 
 const styles = {
+  containerBook: {
+    width: "100%",
+  },
   containerTitleAdd: {
     display: "flex",
     justifyContent: "space-between",
