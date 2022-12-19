@@ -2,5 +2,5 @@ import React from "react";
 import { Container } from "../../utils/styles/GlobalStyle";
 
 export default function UserBackOffice() {
-  return <Container>UserBackOffice</Container>;
+  return <Container>UsokokokkerBackOffice</Container>;
 }

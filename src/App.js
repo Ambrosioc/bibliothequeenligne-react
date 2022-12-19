@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import AdminBackOffice from "./pages/private/AdminBackOffice";
 import UserBackOffice from "./pages/private/UserBackOffice";
 import jwtDecode from "jwt-decode";
+import BOUsersList from "./container/BOUsersList";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -42,6 +43,7 @@ function App() {
         <Route path={"/user"} element={<UserBackOffice />} />
         <Route path={"/bookslist"} element={<BooksList />} />
         <Route path={"/about"} element={<About />} />
+        <Route path={"/admin/user"} element={<BOUsersList />} />
         <Route
           path={"/sign-in"}
           element={
