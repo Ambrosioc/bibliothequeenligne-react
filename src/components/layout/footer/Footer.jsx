@@ -4,7 +4,8 @@ import styled from "styled-components";
 
 const LayoutContainerFooter = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -34,6 +35,7 @@ export default function Footer() {
         </div>
         <div>
           <h3>Utile</h3>
+          <p>Les liens utiles</p>
         </div>
         <div>
           <h3>Contact</h3>
