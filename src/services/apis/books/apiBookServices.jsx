@@ -1,5 +1,5 @@
 const FRONT_URL = "https://book-api-projet-fin.herokuapp.com/api";
-const TEST_URL = "http://localhost:8000/api";
+// const TEST_URL = "http://localhost:8000/api";
 
 // Création et connexion d'un utilisateur
 export const auth = {
@@ -20,18 +20,18 @@ export const auth = {
         return data;
       });
   },
-  // register: (email, password) => {
-  //   return fetch(`${TEST_URL}/register`, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       email: email,
-  //       password: password,
-  //     }),
-  //   }).then((response) => response.json());
-  // },
+  register: (email, password) => {
+    return fetch(`${FRONT_URL}/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    }).then((response) => response.json());
+  },
 };
 
 // Récupération des livres
