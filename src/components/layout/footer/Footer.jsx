@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { StyledLink } from "../../../utils/styles/GlobalStyle";
 
 const LayoutContainerFooter = styled.div`
   display: flex;
@@ -8,7 +10,6 @@ const LayoutContainerFooter = styled.div`
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   width: 100%;
-  height: 10vh;
 `;
 
 const FooterDiv = styled.div`
@@ -22,14 +23,23 @@ export default function Footer() {
   return (
     <LayoutContainerFooter>
       <FooterDiv>
-        <div>
+        <div style={styles.categories}>
           <h3>Catégories</h3>
+          <Link to={"/"} style={styles.links}>
+            Mangas
+          </Link>
+          <Link style={styles.links}>Roman</Link>
+          <Link style={styles.links}>BD</Link>
+          <Link style={styles.links}>Comics</Link>
+          <Link style={styles.links}>Autres</Link>
         </div>
         <div>
           <h3>Utile</h3>
         </div>
         <div>
           <h3>Contact</h3>
+          <p>0668965739</p>
+          <p>Mail</p>
         </div>
       </FooterDiv>
       <div>
@@ -39,3 +49,13 @@ export default function Footer() {
     </LayoutContainerFooter>
   );
 }
+
+const styles = {
+  categories: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  links: {
+    textDecoration: "none",
+  },
+};

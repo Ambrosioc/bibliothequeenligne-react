@@ -53,7 +53,6 @@ export const Button = styled.button`
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
-  color: #000;
 `;
 
 export default function GlobalStyle() {
