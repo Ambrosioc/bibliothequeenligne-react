@@ -10,7 +10,6 @@ import {
 } from "../../../utils/styles/layout";
 import logo from "../../../asset/logo.png";
 import "./nav.css";
-import { Label } from "../../../utils/styles/auth";
 
 export default function Navbar() {
   const { theme, toggoleTheme } = useContext(ThemeContext);
