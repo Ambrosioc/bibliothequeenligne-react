@@ -1,8 +1,7 @@
 import React from "react";
 import Card from "../components/cards/Card";
 import { useFetchwithToken } from "../utils/hooks";
-import { StyledLink } from "../utils/styles/GlobalStyle";
-import { CardContainer } from "../utils/styles/StyledCard";
+import { Container, StyledLink } from "../utils/styles/GlobalStyle";
 
 export default function Books() {
   const token = localStorage.getItem("token");
@@ -14,10 +13,10 @@ export default function Books() {
 
   if (!token) {
     return (
-      <CardContainer>
+      <Container>
         <h1>Vous devez être connecté pour accéder à cette page</h1>
         <StyledLink to="/sign-in">Se connecter</StyledLink>
-      </CardContainer>
+      </Container>
     );
   }
 
