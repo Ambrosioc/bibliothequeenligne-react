@@ -12,7 +12,7 @@ import { Button, Container } from "../../utils/styles/GlobalStyle";
 export default function SignUp() {
   const naviagte = useNavigate();
 
-  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [firstname, setFirstname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,8 +21,8 @@ export default function SignUp() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(name, firstname, email, password, confirmPassword, date);
-    auth.register(name, firstname, email, password, date).then((data) => {
+    console.log(lastName, firstname, email, password, confirmPassword, date);
+    auth.register(lastName, firstname, email, password, date).then((data) => {
       if (data.status) {
         alert("Vous êtes inscrit, connectez-vous !");
         console.log(data);
@@ -35,14 +35,14 @@ export default function SignUp() {
     <Container>
       <h1>Inscription</h1>
       <Form onSubmit={handleSubmit}>
-        <Label htmlFor="name">Nom</Label>
+        <Label htmlFor="lastname">Nom</Label>
         <Input
-          id="name"
+          id="lastname"
           type="text"
           placeholder="Nom"
-          value={name}
+          value={lastName}
           onChange={(e) => {
-            setName(e.target.value);
+            setLastName(e.target.value);
           }}
           required
         />

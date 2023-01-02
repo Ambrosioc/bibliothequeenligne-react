@@ -20,13 +20,15 @@ export const auth = {
         return data;
       });
   },
-  register: (email, password) => {
+  register: (lastName, firstName, email, password) => {
     return fetch(`${FRONT_URL}/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        lastname: lastName,
+        firstname: firstName,
         email: email,
         password: password,
       }),
