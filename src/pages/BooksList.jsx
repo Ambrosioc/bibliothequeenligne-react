@@ -2,15 +2,16 @@ import React from "react";
 import Footer from "../components/layout/footer/Footer";
 
 import Books from "../container/Books";
-import { Container } from "../utils/styles/GlobalStyle";
+import { Container, StyledLink } from "../utils/styles/GlobalStyle";
 
 const BooksList = () => {
-  const token = localStorage.getItem("token");
+  const token = sessionStorage.getItem("token");
 
   if (!token) {
     return (
       <Container>
-        <Books />
+        <h1>Vous devez être connecté pour accéder à cette page</h1>
+        <StyledLink to="/sign-in">Se connecter</StyledLink>
       </Container>
     );
   }

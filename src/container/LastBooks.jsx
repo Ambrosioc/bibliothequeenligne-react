@@ -1,10 +1,9 @@
 import Card from "../components/cards/Card";
 import { useFetch } from "../utils/hooks";
+import { getLastBooks } from "../services/apis/books/apiBookServices";
 
 export default function LastBooks() {
-  const { data, isLoading, error } = useFetch(
-    "https://book-api-projet-fin.herokuapp.com/api/lastbooks"
-  );
+const { data, isLoading, error } = useFetch(getLastBooks());
 
   return (
     <>

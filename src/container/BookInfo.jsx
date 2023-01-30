@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { getBookById } from "../services/apis/books/apiBookServices";
 import { Container } from "../utils/styles/GlobalStyle";
 
 export default function BookInfo() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState();
+  const token = sessionStorage.getItem("token");
   const { id } = useParams();
   const findBook = (id) => {
-    const token = localStorage.getItem("token");
-    fetch(`https://book-api-projet-fin.herokuapp.com/api/books/${id}`, {
+    const token = sessionStorage.getItem("token");
+    fetch(getBookById(id), {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -17,12 +19,13 @@ export default function BookInfo() {
       .then((response) => response.json())
       .then((data) => {
         setData(data);
+
       });
   };
 
   const deleteBook = (id) => {
-    const token = localStorage.getItem("token");
-    fetch(`https://book-api-projet-fin.herokuapp.com/api/books/${id}`, {
+    const token = sessionStorage.getItem("token");
+    fetch(getBookById(id), {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -34,11 +37,16 @@ export default function BookInfo() {
         setData(data);
       });
   };
+  const navigate = useNavigate();
 
   useEffect(() => {
     findBook(id);
   }, [id]);
-  console.log(data);
+
+
+  if (!token) {
+    return <h1>Vous n'êtes pas connecté</h1>;
+  }
 
   return (
     <Container>
@@ -53,20 +61,20 @@ export default function BookInfo() {
               <p>{data.coverText}</p>
               <p>{data.dateAt}</p>
             </div>
-            <button
-              onClick={() => {
-                deleteBook(id);
-              }}
+            <button onClick={() => {
+              deleteBook(id);
+              navigate("/bookslist")
+            }}
             >
               Supprimer le livre
             </button>
           </div>
         </>
-      )}
+      )
+      }
     </Container>
   );
 }
-
 const styles = {
   info: {
     display: "flex",

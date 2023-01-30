@@ -3,7 +3,7 @@ import BookInfo from "../container/BookInfo";
 import { Container, StyledLink } from "../utils/styles/GlobalStyle";
 
 export default function BookShow() {
-  const token = localStorage.getItem("token");
+  const token = sessionStorage.getItem("token");
   if (!token) {
     return (
       <Container>

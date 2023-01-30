@@ -240,6 +240,7 @@ const styles = {
     padding: "0.5rem",
     border: "1px solid #ccc",
     borderRadius: "5px",
+    margin: "5px"
   },
   bookButton: {
     display: "block",

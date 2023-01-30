@@ -8,7 +8,7 @@ export function useFetchwithToken(url) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const token = localStorage.getItem("token");
+        const token = sessionStorage.getItem("token");
         const response = await fetch(url, {
           headers: {
             Authorization: `Bearer ${token}`,

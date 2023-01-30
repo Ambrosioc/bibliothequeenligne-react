@@ -2,7 +2,7 @@ import React from "react";
 import { useFetchwithToken } from "../utils/hooks";
 
 export default function UpdateBook() {
-  const token = localStorage.getItem("token");
+  const token = sessionStorage.getItem("token");
 
   const { data, isLoading, error } = useFetchwithToken(
     "https://book-api-projet-fin.herokuapp.com/api/books/`id`",

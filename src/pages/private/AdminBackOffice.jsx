@@ -3,14 +3,12 @@ import { Link } from "react-router-dom";
 import BOBooksList from "../../container/BOBooksList";
 import { Container } from "../../utils/styles/GlobalStyle";
 import { useFetchwithToken } from "../../utils/hooks";
+import { getAllBooks } from "../../services/apis/books/apiBookServices";
 
 export default function AdminBackOffice() {
-  const token = localStorage.getItem("token");
+  const token = sessionStorage.getItem("token");
+  const { data, isLoading, error } = useFetchwithToken(getAllBooks());
 
-  const { data, isLoading, error } = useFetchwithToken(
-    "https://book-api-projet-fin.herokuapp.com/api/books",
-    token
-  );
 
   return (
     <Container>
@@ -26,12 +24,12 @@ export default function AdminBackOffice() {
           <h3>Listes des livres</h3>
           <button style={styles.bookButton}>Ajouter un livre</button>
         </div>
-        <BOBooksList
-          data={data}
-          isLoading={isLoading}
-          error={error}
-          token={token}
-        />
+        {isLoading ? <p>Chargement...</p> :
+          <BOBooksList
+            data={data}
+            error={error}
+          />
+        }
       </div>
     </Container>
   );
@@ -49,7 +47,7 @@ const styles = {
   bookButton: {
     display: "block",
     padding: "0.5rem",
-    margin: "0.5rem 0",
+    margin: "5px",
     border: "none",
     borderRadius: "5px",
     backgroundColor: "#ccc",

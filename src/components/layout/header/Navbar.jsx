@@ -15,7 +15,7 @@ export default function Navbar() {
   const { theme, toggoleTheme } = useContext(ThemeContext);
 
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
+  const token = sessionStorage.getItem("token");
 
   function showResponsiveMenu() {
     let menu = document.getElementById("topnav_responsive_menu");
@@ -67,7 +67,7 @@ export default function Navbar() {
           {token ? (
             <LayoutButton
               onClick={() => {
-                localStorage.removeItem("token");
+                sessionStorage.removeItem("token");
                 navigate("/");
               }}
             >
@@ -121,7 +121,7 @@ export default function Navbar() {
                   <button
                     style={styles.btnDisconnect}
                     onClick={() => {
-                      localStorage.removeItem("token");
+                      sessionStorage.removeItem("token");
                       navigate("/");
                     }}
                   >
