@@ -1,10 +1,10 @@
-// const FRONT_URL = "https://book-api-projet-fin.herokuapp.com/api";
-const TEST_URL = "http://localhost:8000/api";
+const FRONT_URL = "https://book-api-projet-fin.herokuapp.com/api";
+// const TEST_URL = "http://localhost:8000/api";
 
 // Création et connexion d'un utilisateur
 export const auth = {
   login: (email, password) => {
-    return fetch(`${TEST_URL}/login_check`, {
+    return fetch(`${FRONT_URL}/login_check`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -21,7 +21,7 @@ export const auth = {
       });
   },
   register: (lastName, firstName, email, password) => {
-    return fetch(`${TEST_URL}/register`, {
+    return fetch(`${FRONT_URL}/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -38,29 +38,29 @@ export const auth = {
 
 // Récupération des livres
 export const getLastBooks = () => {
-  return `${TEST_URL}/lastbooks`;
+  return `${FRONT_URL}/lastbooks`;
 };
 
 export const getAllBooks = () => {
-  return `${TEST_URL}/books`;
+  return `${FRONT_URL}/books`;
 };
 
 export function getBookById(id) {
-  return TEST_URL + `/books/${id}`;
+  return FRONT_URL + `/books/${id}`;
 }
 
 export function getBookByTitle(title) {
-  return TEST_URL + `/books/search/${title}`;
+  return FRONT_URL + `/books/search/${title}`;
 }
 
 export function getBookByAuthor(author) {
-  return TEST_URL + `/books/search/${author}`;
+  return FRONT_URL + `/books/search/${author}`;
 }
 
 export function getBookByCategory(category) {
-  return TEST_URL + `/books/search/${category}`;
+  return FRONT_URL + `/books/search/${category}`;
 }
 
 export function getBookByYear(year) {
-  return TEST_URL + `/books/search/${year}`;
+  return FRONT_URL + `/books/search/${year}`;
 }
