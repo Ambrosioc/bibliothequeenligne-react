@@ -40,8 +40,9 @@ export default function BookInfo() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    findBook(id);
+    findBook(id)
   }, [id]);
+  console.log(data);
 
 
   if (!token) {
@@ -64,6 +65,7 @@ export default function BookInfo() {
             <button onClick={() => {
               deleteBook(id);
               navigate("/bookslist")
+              alert("suprimer")
             }}
             >
               Supprimer le livre

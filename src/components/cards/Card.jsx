@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Loader } from "../../utils/styles/Loading";
 import {
   CardBookInfo,
   CardBookLi,
@@ -9,17 +8,9 @@ import {
   LastBooksImg,
 } from "../../utils/styles/StyledCard";
 
-export default function Card({ data, isLoading }) {
+export default function Card({ data }) {
   const navigate = useNavigate();
 
-
-  if (isLoading) {
-    return (
-      <CardContainer>
-        <Loader />
-      </CardContainer>
-    );
-  }
   return (
     <CardContainer>
       <CardBookUl>

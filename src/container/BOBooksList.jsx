@@ -3,15 +3,12 @@ import { Link } from "react-router-dom";
 import { Container } from "../utils/styles/GlobalStyle";
 
 
-export default function BOBooksList(props) {
-  const { data, error } = props;
-  const books = data;
-
+export default function BOBooksList({ data }) {
 
   return (
     <Container>
       <ul style={styles.bookUl}>
-        {books.map((book, index) => (
+        {data.map((book, index) => (
           <li key={`${book.name}-${index}`} style={styles.bookLi}>
             <p>{book.title}</p>
             <p>{book.author.lastName}</p>

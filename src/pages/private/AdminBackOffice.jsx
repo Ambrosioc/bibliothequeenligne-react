@@ -9,7 +9,6 @@ export default function AdminBackOffice() {
   const token = sessionStorage.getItem("token");
   const { data, isLoading, error } = useFetchwithToken(getAllBooks());
 
-
   return (
     <Container>
       <h1>Admin Back Office</h1>
