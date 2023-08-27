@@ -14,7 +14,7 @@ Ce projet d'étude est une application de bibliothèque en ligne permettant aux 
 
 ## Capture d'Écran
 
-![Capture d'écran de l'interface de la bibliothèque en ligne](screenshot.png)
+![Capture d'écran de l'interface de la bibliothèque en ligne](src/asset/img/Home-page-Bibli%20-%20Page%20-%20Les%20Livres%20-%20User%20Connect.png)
 
 ## Mise en Route
 
