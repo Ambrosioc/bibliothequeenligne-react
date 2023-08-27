@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# Projet de Bibliothèque en Ligne avec API Personnalisée
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ce projet d'étude est une application de bibliothèque en ligne permettant aux utilisateurs de gérer et de consulter une collection de livres. L'application est construite avec React pour l'interface utilisateur frontend, utilisant des technologies telles que Styled Components, JWT Decode, React Cookie Consent et Material Icons. Les utilisateurs peuvent ajouter, supprimer et modifier des informations sur les livres, ainsi que se connecter pour consulter les livres disponibles grâce à une API personnalisée construite.
 
-## Available Scripts
+## Fonctionnalités Principales
 
-In the project directory, you can run:
+- **Gestion de Livres :** Les utilisateurs authentifiés peuvent ajouter, supprimer et mettre à jour des informations sur les livres, notamment le titre, l'auteur, la catégorie et la couverture.
 
-### `npm start`
+- **Authentification Utilisateur :** L'application propose un système d'authentification sécurisé permettant aux utilisateurs de créer un compte, de se connecter et de se déconnecter. Les utilisateurs connectés peuvent voir les livres disponibles.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **API Personnalisée :** L'API backend a été développée sur mesure pour ce projet, offrant des endpoints pour gérer les livres et les utilisateurs. Elle communique avec la base de données pour stocker les informations.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Interface React :** L'interface frontend est développée en React et utilise des technologies telles que Styled Components pour la gestion des styles, JWT Decode pour le décodage sécurisé des jetons JWT, React Cookie Consent pour la gestion des cookies et Material Icons pour des icônes élégantes.
 
-### `npm test`
+## Capture d'Écran
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Capture d'écran de l'interface de la bibliothèque en ligne](screenshot.png)
 
-### `npm run build`
+## Mise en Route
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clonez ce dépôt sur votre machine locale.
+2. Installez les dépendances du frontend avec `yarn install` dans le dossier `frontend`.
+3. Lancez le frontend React avec `yarn start` dans le dossier `frontend`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Contributions
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Les contributions sont les bienvenues ! Si vous souhaitez ajouter des fonctionnalités, améliorer l'expérience utilisateur ou optimiser le code, n'hésitez pas à soumettre une demande d'extraction.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Ce projet a été réalisé dans le cadre d'une étude personnelle par [Cazimira Ambrosie](https://github.com/Ambrosioc), démontrant les compétences en développement frontend avec React, l'utilisation de technologies telles que Styled Components, JWT Decode, React Cookie Consent et Material Icons, ainsi que la création d'une API personnalisée pour gérer des livres et des utilisateurs.
