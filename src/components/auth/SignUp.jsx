@@ -21,14 +21,21 @@ export default function SignUp() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(lastName, firstname, email, password, confirmPassword, date);
-    auth.register(lastName, firstname, email, password, date).then((data) => {
-      if (data.status) {
+    
+    if (password !== confirmPassword) {
+      alert("Les mots de passe ne correspondent pas.");
+      return;
+    }
+
+    auth.register(lastName, firstname, email, password, date)
+      .then((data) => {
         alert("Vous êtes inscrit, connectez-vous !");
-        console.log(data);
         naviagte("/sign-in");
-      }
-    });
+      })
+      .catch((error) => {
+        console.error("Registration error:", error);
+        alert(error.message || "Une erreur s'est produite lors de l'inscription.");
+      });
   }
 
   return (

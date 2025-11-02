@@ -7,8 +7,8 @@ import BooksList from "./pages/BooksList";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import AdminBackOffice from "./pages/private/AdminBackOffice";
+import AdminUsersBackOffice from "./pages/private/AdminUsersBackOffice";
 import UserBackOffice from "./pages/private/UserBackOffice";
-import BOUsersList from "./container/BOUsersList";
 import AddBook from "./container/AddBook";
 import UpdateBook from "./container/UpdateBook";
 import BookShow from "./pages/BookShow";
@@ -36,9 +36,9 @@ function App() {
 				<Route path={"/bookslist"} element={<BooksList />} />
 				<Route path={"/book/:id"} element={<BookShow />} />
 				<Route path={"/about"} element={<About />} />
-				<Route path={"/admin/user"} element={<BOUsersList />} />
+				<Route path={"/admin/user"} element={<AdminUsersBackOffice />} />
+				<Route path={"/admin/add-book"} element={<AddBook />} />
 				<Route path={"/admin/updateBook"} element={<UpdateBook />} />
-				<Route path={"/admin/user"} element={<AddBook />} />
 				<Route
 					path={"/sign-in"}
 					element={

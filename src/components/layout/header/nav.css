@@ -42,138 +42,138 @@
   /* show responsive menu and position at the right of the screen */
   #topnav_responsive_menu {
     display: block;
-    position: absolute;
+    position: fixed;
     margin: 0;
     right: 0;
     top: 0;
     width: 100vw;
     height: 100vh;
-
-    z-index: 99;
-
-    transform-origin: 0% 0%;
-    transform: translate(200%, 0);
-
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    z-index: 999;
+    background: rgba(254, 252, 249, 0.98);
+    backdrop-filter: blur(10px);
+    transform-origin: 100% 0%;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   #topnav_responsive_menu ul {
     display: flex;
     flex-direction: column;
-
     position: absolute;
     margin: 0;
     right: 0;
     top: 0;
-
-    min-width: 50vw;
+    width: 100%;
+    max-width: 320px;
     height: 100vh;
-    padding: 56px 0 0;
-
-    text-align: center;
-
-    background: #ededed;
+    padding: 80px 0 0;
+    text-align: left;
+    background: linear-gradient(180deg, #FEFCF9 0%, #FFF8F0 100%);
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
+    box-shadow: -4px 0 24px rgba(44, 37, 21, 0.15);
   }
 
   /* And let's slide it in from the right */
   #topnav_responsive_menu.open {
-    transform: none;
-    position: fixed;
+    transform: translateX(0);
   }
 
   /* ******************** HAMBURGER ICON ******************** */
   /* define size and position of the hamburger link */
   #topnav_hamburger_icon {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     position: relative;
-    margin: 16px;
-    width: 33px;
-    height: 28px;
-
-    z-index: 100;
-
+    width: 32px;
+    height: 24px;
+    z-index: 1000;
     -webkit-user-select: none;
     user-select: none;
     cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
   }
 
   /* define the style (size, color, position, animation, ...) of the 3 spans */
   #topnav_hamburger_icon span {
     display: block;
     position: absolute;
-    height: 4px;
+    height: 3px;
     width: 100%;
-    margin-bottom: 5px;
-
-    background: black;
+    background: #2C2415;
     border-radius: 3px;
-
-    z-index: 100;
-
     opacity: 1;
     left: 0;
-
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
-    -webkit-transition: 0.25s ease-in-out;
-    -moz-transition: 0.25s ease-in-out;
-    -o-transition: 0.25s ease-in-out;
-    transition: 0.25s ease-in-out;
+    -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -moz-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -o-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   /* set the 3 spans position to look like a hamburger */
   #topnav_hamburger_icon span:nth-child(1) {
     top: 0px;
-    -webkit-transform-origin: left top;
-    -moz-transform-origin: left top;
-    -o-transform-origin: left top;
-    transform-origin: left top;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
   }
   #topnav_hamburger_icon span:nth-child(2) {
-    top: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
     -webkit-transform-origin: left center;
     -moz-transform-origin: left center;
     -o-transform-origin: left center;
     transform-origin: left center;
   }
   #topnav_hamburger_icon span:nth-child(3) {
-    top: 24px;
-    -webkit-transform-origin: left bottom;
-    -moz-transform-origin: left bottom;
-    -o-transform-origin: left bottom;
-    transform-origin: left bottom;
+    bottom: 0px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
   }
 
   /* change color when opening the menu */
   #topnav_hamburger_icon.open span {
-    background: rgb(1, 1, 1);
+    background: #8B4513;
   }
 
   /* the first span rotates 45° \ */
   #topnav_hamburger_icon.open span:nth-child(1) {
-    width: 110%;
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
+    top: 50%;
+    -webkit-transform: translateY(-50%) rotate(45deg);
+    -moz-transform: translateY(-50%) rotate(45deg);
+    -o-transform: translateY(-50%) rotate(45deg);
+    transform: translateY(-50%) rotate(45deg);
   }
 
   /* the second span disappears */
   #topnav_hamburger_icon.open span:nth-child(2) {
     width: 0%;
     opacity: 0;
+    transform: translateY(-50%) scaleX(0);
+    -webkit-transform: translateY(-50%) scaleX(0);
+    -moz-transform: translateY(-50%) scaleX(0);
+    -o-transform: translateY(-50%) scaleX(0);
   }
 
   /* the last span rotates -45° / */
   #topnav_hamburger_icon.open span:nth-child(3) {
-    width: 110%;
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    transform: rotate(-45deg);
+    bottom: 50%;
+    -webkit-transform: translateY(50%) rotate(-45deg);
+    -moz-transform: translateY(50%) rotate(-45deg);
+    -o-transform: translateY(50%) rotate(-45deg);
+    transform: translateY(50%) rotate(-45deg);
   }
 }
